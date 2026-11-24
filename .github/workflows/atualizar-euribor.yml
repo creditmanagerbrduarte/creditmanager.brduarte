@@ -1,0 +1,30 @@
+name: Atualizar Euribor
+
+on:
+  schedule:
+    - cron: "30 13 * * 1-5"   # dias úteis às 13:30 UTC (depois da publicação diária)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/atualizar_euribor.py
+      - name: Guardar alteração
+        run: |
+          if git diff --quiet taxas.json; then
+            echo "Sem alterações."
+          else
+            git config user.name "atualizador-euribor"
+            git config user.email "actions@users.noreply.github.com"
+            git add taxas.json
+            git commit -m "Euribor 12M: $(python -c 'import json;d=json.load(open("taxas.json"));print(d["euribor12m"],d["data"])')"
+            git push
+          fi
