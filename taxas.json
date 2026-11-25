@@ -1,6 +1,6 @@
 {
-  "euribor12m": 3.37,
-  "data": "23/11/2026",
+  "euribor12m": 3.376,
+  "data": "24/11/2026",
   "fonte": "euribor-rates.eu",
   "spreads": {
     "ate60": 0.75,
