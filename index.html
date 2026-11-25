@@ -114,11 +114,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 @media (max-width:520px){.kw-logo{height:34px}.brand{gap:10px}.brand b{font-size:.9rem}}
 @media (max-width:360px){.brand .sep,.brand > div{display:none}}
 /* contact & footer */
-.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
 .contact a{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
 .contact a:hover{border-color:var(--gold)}
 .contact small{display:block;color:var(--muted);font-size:.78rem}
-.contact b{font-size:.98rem;word-break:break-all}
+.contact b{font-size:.98rem;overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);padding:34px 0 90px;color:var(--muted);font-size:.8rem}
 footer p+p{margin-top:8px}
 .fab{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4);color:#fff}
